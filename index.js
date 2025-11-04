@@ -6,7 +6,7 @@ app.use(cors())
 
 const CLIENT_ID = '1435160999891046460';
 const CLIENT_SECRET = 'a79Xnwb83gMWSGddcjvcs8WJipwfIORG';
-const REDIRECT_URI = 'http://localhost:3000/callback';
+const REDIRECT_URI = 'https://logindiscord.onrender.com/callback';
 
 app.get('/', (req, res) => {
   const discordAuthUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=identify%20email`;
@@ -40,5 +40,6 @@ app.get('/callback', async (req, res) => {
 });
 
 app.listen(3001, () => {
-  console.log('Servidor corriendo en http://localhost:3000');
+  console.log('Servidor corriendo en http://localhost:3001');
 });
+
