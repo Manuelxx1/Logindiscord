@@ -33,7 +33,10 @@ app.get('/callback', async (req, res) => {
       headers: { Authorization: `Bearer ${accessToken}` }
     });
 
-    res.json(userResponse.data);
+    const user = userResponse.data;
+const frontendUrl = `https://4200-cs-582739288523-default.cs-us-east1-yeah.cloudshell.dev/?username=${user.username}&avatar=${user.avatar}&id=${user.id}`;
+res.redirect(frontendUrl);
+
   } catch (error) {
     res.status(500).send('Error en el login con Discord');
   }
@@ -42,4 +45,5 @@ app.get('/callback', async (req, res) => {
 app.listen(3001, () => {
   console.log('Servidor corriendo en http://localhost:3001');
 });
+
 
